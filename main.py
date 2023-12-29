@@ -18,7 +18,7 @@ def get_screen_center():
     return center_x, center_y
 
 center_x, center_y = get_screen_center()
-
+margin = 100
 #x_pos = center_x
 #y_pos = center_y
 x_max,y_max = pyautogui.size()
@@ -57,14 +57,14 @@ while datetime.datetime.now() < end_time:
     x_pos += random.randint(-diameter, diameter)
     y_pos += random.randint(-diameter, diameter)
     
-    if x_pos > x_max:
-        x_pos = x_max
-    elif x_pos < 0:
-        x_pos = 0
-    if y_pos > y_max:
-        y_pos = y_max
-    elif y_pos < 0:
-        y_pos = 0
+    if x_pos > x_max-margin:
+        x_pos = x_max-margin
+    elif x_pos < margin:
+        x_pos = margin
+    if y_pos > y_max-margin:
+        y_pos = y_max-margin
+    elif y_pos < margin:
+        y_pos = margin
 
     print("Moving mouse to:",x_pos,y_pos)
     # Move the mouse to random position
